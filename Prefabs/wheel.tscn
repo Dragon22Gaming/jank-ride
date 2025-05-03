@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4mceu1kk08c4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ve0wp"]
+radius = 30.0
+
+[node name="Wheel" type="RigidBody2D" groups=["player"]]
+mass = 30.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ve0wp")
+debug_color = Color(0, 0, 0, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
