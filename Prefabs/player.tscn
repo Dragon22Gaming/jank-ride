@@ -6,10 +6,12 @@
 
 [node name="Player" type="RigidBody2D" groups=["player"]]
 physics_interpolation_mode = 1
-gravity_scale = 30.0
+gravity_scale = 10.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 30)
 script = ExtResource("1_ojwbk")
+acceleration = 0.335
+SPEED = 26.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.38419e-07, 3.8147e-06)
@@ -18,7 +20,7 @@ texture = ExtResource("1_y6xdh")
 
 [node name="Back_Wheel" type="PinJoint2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(-45, 35)
+position = Vector2(-40, 35)
 rotation = 1.5708
 node_a = NodePath("..")
 node_b = NodePath("Wheel")
@@ -27,7 +29,7 @@ node_b = NodePath("Wheel")
 
 [node name="Front_Wheel" type="PinJoint2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(45, 35)
+position = Vector2(40, 35)
 rotation = 1.5708
 node_a = NodePath("..")
 node_b = NodePath("Wheel")
@@ -35,4 +37,4 @@ node_b = NodePath("Wheel")
 [node name="Wheel" parent="Front_Wheel" instance=ExtResource("2_5wxv7")]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-56, -17, 55, -17, 55, 17, -56, 17)
+polygon = PackedVector2Array(-65, -4, -61, -27, -51, -43, -39, -50, -24, -53, -5, -53, -5, -4, 23, -4, 35, -24, 48, -24, 59, -21, 63, -14, 64, -2, 63, 15, 49, 23, 18, 30, -11, 30, -42, 26, -61, 18)

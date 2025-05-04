@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4mceu1kk08c4"]
+[gd_scene load_steps=3 format=3 uid="uid://b4mceu1kk08c4"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://buawi4fsfuj0d" path="res://Prefabs/tire.phymat" id="1_eesuk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ve0wp"]
-radius = 30.0
+radius = 20.0
 
 [node name="Wheel" type="RigidBody2D" groups=["player"]]
-mass = 30.0
+mass = 10.0
+physics_material_override = ExtResource("1_eesuk")
+gravity_scale = 0.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ve0wp")
