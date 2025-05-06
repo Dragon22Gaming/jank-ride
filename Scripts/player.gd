@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-@onready var front_wheel = $Front_Wheel/Wheel
-@onready var back_wheel = $Back_Wheel/Wheel
+@onready var front_wheel = $Front_wheel
+@onready var back_wheel = $Rear_wheel
 @export_category("Da Car")
 @export var acceleration := 0.06
 @export var SPEED : float = 22.0

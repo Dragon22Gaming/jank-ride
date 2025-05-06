@@ -4,6 +4,8 @@ extends StaticBody2D
 @onready var player = $"../Player"
 @onready var save_file = FileAccess.open("user://level1.save", FileAccess.WRITE_READ)
 
+#formula: ((sin(2*x)*tan(x)-cos(x))/4)+(sin(-x)/tan(0.2*-x))+5+sin(x*0.3)-cos(x*0.6)
+
 func _ready() -> void:
 	if FileAccess.file_exists("user://level1.save"):
 		print_debug("file exists!")
