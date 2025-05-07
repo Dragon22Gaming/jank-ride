@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccqmti1wtdptj"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://ddmws1un7boxi" path="res://Prefabs/car.phymat" id="1_2nftw"]
+[ext_resource type="Script" uid="uid://dvwe5jdc85w1u" path="res://Scripts/Car.gd" id="1_ojwbk"]
+[ext_resource type="Texture2D" uid="uid://cthhw0vcllxce" path="res://icon.svg" id="1_y6xdh"]
+[ext_resource type="PackedScene" uid="uid://b4mceu1kk08c4" path="res://Prefabs/wheel.tscn" id="2_5wxv7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmfwv"]
+radius = 7.0
+height = 38.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmfwv"]
+radius = 15.0333
+
+[node name="Car" type="RigidBody2D" groups=["player"]]
+physics_interpolation_mode = 1
+mass = 1.2
+physics_material_override = ExtResource("1_2nftw")
+gravity_scale = 0.5
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 5)
+script = ExtResource("1_ojwbk")
+SPEED = 32.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 3.8147e-06)
+scale = Vector2(1.36, 0.35)
+texture = ExtResource("1_y6xdh")
+
+[node name="Rear_wheel" parent="." instance=ExtResource("2_5wxv7")]
+position = Vector2(-66, 35)
+rotation = 1.5708
+mass = 0.1
+
+[node name="Front_wheel" parent="." instance=ExtResource("2_5wxv7")]
+position = Vector2(67, 35)
+rotation = 1.5708
+mass = 0.1
+
+[node name="FrontWheelHolder" type="PinJoint2D" parent="."]
+position = Vector2(67, 35)
+node_a = NodePath("..")
+node_b = NodePath("../Front_wheel")
+softness = 6.0
+
+[node name="RearWheelHolder" type="PinJoint2D" parent="."]
+position = Vector2(-66, 35)
+node_a = NodePath("..")
+node_b = NodePath("../Rear_wheel")
+softness = 6.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.36, 1)
+polygon = PackedVector2Array(-63, -17, -54, -21, -24.2647, -21, 26.4706, -21, 51, -21, 61.7647, -17, 61.7647, 3, 40.4412, 6, 24.2647, 22, -25, 22, -40.4412, 7, -63.2353, 2)
+
+[node name="TorsoJoint" type="PinJoint2D" parent="."]
+position = Vector2(-9, -18)
+node_a = NodePath("..")
+node_b = NodePath("Torso")
+softness = 2.0
+
+[node name="Torso" type="RigidBody2D" parent="TorsoJoint"]
+position = Vector2(9, 18)
+mass = 0.2
+gravity_scale = 0.4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorsoJoint/Torso"]
+position = Vector2(-9, -30)
+shape = SubResource("CapsuleShape2D_rmfwv")
+disabled = true
+
+[node name="HeadJoint" type="PinJoint2D" parent="TorsoJoint/Torso"]
+position = Vector2(-9, -45)
+node_a = NodePath("..")
+node_b = NodePath("Head")
+softness = 3.0
+
+[node name="Head" type="RigidBody2D" parent="TorsoJoint/Torso/HeadJoint"]
+mass = 0.1
+gravity_scale = -0.4
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorsoJoint/Torso/HeadJoint/Head"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_rmfwv")
