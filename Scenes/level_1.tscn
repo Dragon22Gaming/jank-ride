@@ -8,17 +8,17 @@
 
 [node name="Player" parent="." instance=ExtResource("1_vk57k")]
 position = Vector2(1, -180)
-collision_mask = 2
-gravity_scale = 0.6
+center_of_mass = Vector2(0, 80)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Terrain_Body" type="StaticBody2D" parent="."]
 physics_material_override = ExtResource("2_xfk5q")
 script = ExtResource("2_8ffim")
 
-[node name="Terrain" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="Collider" type="CollisionPolygon2D" parent="Terrain_Body"]
 scale = Vector2(1, 0.75)
+build_mode = 1
 polygon = PackedVector2Array(412, -61, 765, -75, 977, -86, 1182, -142, 1355, -236, 1488, -336, 1577, -459, 1672, -553, 1805, -603, 1922, -570, 2011, -481, 2111, -386, 2178, -253, 2222, -92, 2278, -42, 2355, 14, 2494, 47, 2583, 36, 2628, 20, 2672, 3, 2839, 20, 2984, 97, 3073, 92, 3167, 53, 3245, -58, 3362, -203, 3401, -225, 3440, -231, 3606, -269, 3946, -325, 4135, -325, 4379, -303, 4607, -269, 4780, -219, 4913, -175, 4996, -203, 5163, -281, 5219, -320, 5330, -420, 5397, -475, 5452, -509, 5569, -531, 5686, -525, 5797, -459, 5903, -375, 5964, -269, 6058, -253, 6153, -308, 6242, -364, 6392, -442, 6564, -486, 6681, -486, 6703, -1081, 6859, -1070, 6865, 81, 2734, 398, 715, 453, -386, 409, -903, 381, -803, 86, -597, -492, -341, -497, -313, -325, -302, -147, -191, -103, -41, -53, 54, -53, 159, -69, 237, -80)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4mceu1kk08c4"]
+[gd_scene load_steps=4 format=3 uid="uid://b4mceu1kk08c4"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://buawi4fsfuj0d" path="res://Prefabs/tire.phymat" id="1_eesuk"]
+[ext_resource type="Texture2D" uid="uid://bl6ldn31xi8wd" path="res://Assets/Images/wheel.svg" id="2_0xpw3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ve0wp"]
 radius = 20.0
@@ -15,3 +16,5 @@ shape = SubResource("CircleShape2D_ve0wp")
 debug_color = Color(0, 0, 0, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.093, 0.093)
+texture = ExtResource("2_0xpw3")
