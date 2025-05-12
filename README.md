@@ -1,136 +1,104 @@
+# Jank Ride - 3D Tech Demo Planning Document
 
-# Jank Ride - Project Planning Document
+## 🎮 Project Concept
 
-## 🎮 Game Concept
+**Jank Ride** is a 3D car tech demo built in Godot, designed to explore vehicle physics and terrain interaction in a playful, low-stress environment. The focus is on having fun, learning about 3D development, and building a working physics-based vehicle that can navigate ramps, hills, and chaos.
 
-**Jank Ride** is a simple, physics-based driving game inspired by *Hill Climb Racing*, with a janky aesthetic. You control a crudely-built car across unstable terrain, trying to collect fuel and coins without flipping over or breaking down.
-
-- **Genre**: Physics-based driving / casual arcade
-- **Engine**: Godot
-- **Target Platform**: Desktop (HTML5 optional)
-- **Art Style**: Sketchy, junkyard-engineering vibes
-- **Tone**: Light, chaotic, and funny
-
----
-
-## 🧠 Core Game Loop
-
-1. Start on flat ground
-2. Drive forward across bumpy terrain
-3. Tilt to balance using throttle and brake
-4. Collect coins and fuel pickups
-5. Avoid flipping or running out of fuel
-6. Reach checkpoints or go for high score (distance)
+- **Genre**: Tech demo / sandbox / physics sim
+- **Engine**: Godot (3D)
+- **Platform**: Desktop (Windows/Linux)
+- **Tone**: Playful, janky, experimental
+- **Goal**: Make a 3D car drive around and do dumb stuff
 
 ---
 
-## 🔧 Core Features (Must-Have)
+## 🧠 Core Features
 
-- [ ] Physics-based car with 2 wheels, body, and suspension
-- [ ] Drive / Brake controls
-- [ ] Terrain with hills and bumps
-- [ ] Fuel bar + depletion over time
-- [ ] Coins to collect
-- [ ] Flip = instant death
-- [ ] Game over screen
+- [ ] A functional car with working 'wheels'
+- [ ] Bumpy test terrain with ramps and hills
+- [ ] Camera that follows the car in 3D space
+- [ ] Reset button (if car flips)
+- [ ] Basic UI (maybe speed, maybe nothing)
 
 ---
 
-## 💡 Stretch Features (Nice to Have)
+## 💡 Stretch Features (Optional)
 
-- [ ] Upgrades (engine, fuel tank, suspension)
-- [ ] Unlockable vehicles
-- [ ] Multiple levels (desert, cave, city)
-- [ ] Parallax background
-- [ ] High score system (distance or coins)
+- [ ] Slow-motion button (for cinematic crashes)
+- [ ] Car flip physics button
+- [ ] Obstacles (cones, barrels, physics objects)
+- [ ] Jump pads or launchers
+- [ ] Screenshot button
 
 ---
 
 ## 🗓 Weekly Timeline
 
-### Week 1 – Setup & Core Movement
-- [ ] Create repo + file structure
-- [ ] Design rough car physics with movement
-- [ ] Basic terrain collision
-- [ ] Camera follows car
+### Week 1 – Setup & Vehicle
+- [ ] Setup 3D scene in Godot
+- [ ] Import base vehicle mesh (or use placeholder cubes)
+- [ ] Get car working with input
+- [ ] Set up camera follow
 
-### Week 2 – Game Mechanics
-- [ ] Add fuel bar + depletion
-- [ ] Add coins and basic pickup logic
-- [ ] Add flipping detection (death state)
-- [ ] Simple UI (fuel + coin counters)
+### Week 2 – Terrain & Movement
+- [ ] Design basic test terrain with hills and ramps
+- [ ] Tweak car physics for bounce & fun
+- [ ] Add flip detection + reset button
 
-### Week 3 – Polish & Feedback
-- [ ] Juice (particles, bounce, screen shake)
-- [ ] Add a few sound effects
-- [ ] Background elements (sky, parallax)
-- [ ] Death/restart screen
+### Week 3 – Polish Pass
+- [ ] Add sound effects (engine, crashes)
+- [ ] Add visual effects (dust, skid marks, screen shake)
+- [ ] Tweak terrain for better flow
 
-### Week 4 – Content
-- [ ] Build complete level
-- [ ] Place coin and fuel pickups
-- [ ] Add score or distance tracker
-- [ ] Test balance (how long fuel lasts, etc.)
+### Week 4 – Add Toys
+- [ ] Add interactable objects (cones, barrels)
+- [ ] Maybe launchers or slingshot pads
+- [ ] Add skybox / background elements
 
-### Week 5 – Devlogs & Packaging
-- [ ] Record weekly devlog (~5 mins)
-- [ ] Polish and package the game
-- [ ] Export builds (Windows/Web)
-- [ ] Submit project + documentation
+### Week 5 – Devlogs & Presentation
+- [ ] Record devlogs or walkthrough of the project
+- [ ] Export final demo build
+- [ ] Submit with final reflection
 
 ---
 
-## 🧱 File Structure (Recommended)
-
+## 🧱 Suggested File Structure
 ```
 .
 ├── assets
-│   ├── images
-│   └── sfx
-├── cars
-│   ├── default_car.tscn
-│   └── car.gd
-├── levels
-│   └── test_track.tscn
+│   ├── models
+│   ├── sfx
+│   └── textures
+├── car
+│   ├── CarBody.tscn
+│   ├── CarBody.gd
 ├── scenes
-│   ├── main_menu.tscn
-│   ├── game.tscn
-│   └── game_over.tscn
+│   ├── Main.tscn
+│   └── Track.tscn
 ├── scripts
-│   ├── game.gd
-│   ├── ui.gd
-│   └── terrain.gd
-├── project.godot
-└── README.md
+│   ├── car_controller.gd
+│   └── camera.gd
+├── README.md
+└── project.godot
 ```
 
 ---
 
-## 🧠 Game Pillars
-
-- **Simple to play, satisfying to master**
-- **Funny failures are part of the fun**
-- **Janky, sketchy, and a little chaotic**
-
----
-
-## 🧪 Core Variables to Tweak
-
-- Car weight, torque, and suspension stiffness
-- Fuel rate vs pickup frequency
-- Hill steepness and frequency
-- Jump power (if any ramps)
-- Gravity (might exaggerate it slightly)
+## 🎥 Devlog Format
+Each weekly video (~5 min):
+1. What you did
+2. Show in-game footage
+3. What worked / what broke
+4. What’s coming next
 
 ---
 
-## 🎥 Devlog Structure (Week 5)
-
-Each ~5 min devlog includes:
-1. **Title Card** – “Jank Ride – Devlog Week X”
-2. **Quick Recap** – What was done this week
-3. **Showcase** – In-game footage of the updates
-4. **Challenges** – Talk about bugs or things you had to solve
-5. **What’s next** – Quick preview of what’s coming
+## 🧠 Learning Outcome
+- Learn Godot 3D and physics basics
+- Play with terrain creation
+- Practice input handling, 3D scene setup, and constraints
+- Create something chaotic and fun without stress
 
 ---
+
+**Let’s go drive a brick off a ramp and call it educational.**

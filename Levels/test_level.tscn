@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dms7em4dph66e"]
+
+[ext_resource type="PackedScene" uid="uid://3ug027dau1sr" path="res://Prefabs/car.tscn" id="1_ormqy"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_gbj0n"]
+lightmap_size_hint = Vector2i(44, 36)
+left_to_right = 0.0
+size = Vector3(4, 1, 4)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ormqy"]
+sky_top_color = Color(0.277915, 0.479728, 0.562484, 1)
+sky_curve = 0.227358
+sky_energy_multiplier = 1.5
+ground_curve = 0.242515
+sun_curve = 0.339235
+
+[sub_resource type="Sky" id="Sky_00vsl"]
+sky_material = SubResource("ProceduralSkyMaterial_ormqy")
+
+[sub_resource type="Environment" id="Environment_4k50d"]
+background_mode = 2
+sky = SubResource("Sky_00vsl")
+ambient_light_source = 3
+reflected_light_source = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.423791, 0.457421, 0.510277, 1)
+fog_light_energy = 1.05
+fog_sun_scatter = 11.2
+fog_density = 0.006
+fog_aerial_perspective = 0.07
+fog_sky_affect = 0.765
+
+[node name="Test_Level" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(100, 0.5, 100)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.25, 0)
+mesh = SubResource("PrismMesh_gbj0n")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0425472, 2, 43.5886)
+projection = 1
+size = 4.99192
+
+[node name="Car" parent="." instance=ExtResource("1_ormqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.45097, 0)
+mass = 10.0
+spring_strength = 400.0
+spring_damping = 40.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4k50d")

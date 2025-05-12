@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://3ug027dau1sr"]
+
+[ext_resource type="Script" uid="uid://dpfhxtk25oqnx" path="res://Scripts/car.gd" id="1_7bqh3"]
+[ext_resource type="Texture2D" uid="uid://ch68p1ixc1yqb" path="res://addons/kenney_prototype_textures/green/texture_09.png" id="2_guknt"]
+[ext_resource type="Texture2D" uid="uid://ua73tqapjmay" path="res://addons/kenney_prototype_textures/dark/texture_09.png" id="2_lmfi0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7icc"]
+albedo_texture = ExtResource("2_guknt")
+
+[sub_resource type="BoxMesh" id="BoxMesh_abir8"]
+material = SubResource("StandardMaterial3D_g7icc")
+size = Vector3(4, 0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lduiy"]
+albedo_texture = ExtResource("2_guknt")
+
+[sub_resource type="BoxMesh" id="BoxMesh_cb5iy"]
+material = SubResource("StandardMaterial3D_lduiy")
+size = Vector3(1, 0.5, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_abir8"]
+size = Vector3(4, 0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmfi0"]
+albedo_texture = ExtResource("2_lmfi0")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7bqh3"]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.15
+
+[node name="Car" type="RigidBody3D" node_paths=PackedStringArray("wheels")]
+mass = 50.0
+script = ExtResource("1_7bqh3")
+wheels = [NodePath("Wheel_FL"), NodePath("Wheel_FR"), NodePath("Wheel_RL"), NodePath("Wheel_RR")]
+spring_damping = 400.0
+
+[node name="CarMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_abir8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CarMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 0)
+mesh = SubResource("BoxMesh_cb5iy")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_abir8")
+
+[node name="Wheel_FL" type="RayCast3D" parent="."]
+transform = Transform3D(1, -0.000735063, 0.0004038, 0.000734186, 0.999997, 0.00214591, -0.000405393, -0.00214561, 0.999998, -1.49914, -0.123955, 1.00061)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="Wheel" type="MeshInstance3D" parent="Wheel_FL"]
+transform = Transform3D(1, 0.000523201, 0.000580602, -0.000581116, 0.000997808, 0.999999, 0.00052263, -1, 0.000998109, -0.00052321, -0.500824, -0.000785351)
+material_override = SubResource("StandardMaterial3D_lmfi0")
+mesh = SubResource("CylinderMesh_7bqh3")
+
+[node name="Wheel_FR" type="RayCast3D" parent="."]
+transform = Transform3D(1, -0.000735063, 0.0004038, 0.000734186, 0.999997, 0.00214591, -0.000405393, -0.00214561, 0.999998, -1.49994, -0.128247, -0.99939)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="Wheel" type="MeshInstance3D" parent="Wheel_FR"]
+transform = Transform3D(1, 0.000523201, 0.000580602, -0.000581116, 0.000997808, 0.999999, 0.00052263, -1, 0.000998109, 0.000524282, -0.497433, -0.000782251)
+material_override = SubResource("StandardMaterial3D_lmfi0")
+mesh = SubResource("CylinderMesh_7bqh3")
+
+[node name="Wheel_RL" type="RayCast3D" parent="."]
+transform = Transform3D(1, -0.000735063, 0.0004038, 0.000734186, 0.999997, 0.00214591, -0.000405393, -0.00214561, 0.999998, 1.5004, -0.121753, 0.99939)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="Wheel" type="MeshInstance3D" parent="Wheel_RL"]
+transform = Transform3D(1, 0.000523201, 0.000580602, -0.000581116, 0.000997808, 0.999999, 0.00052263, -1, 0.000998109, -0.000524163, -0.502567, 0.000782192)
+material_override = SubResource("StandardMaterial3D_lmfi0")
+mesh = SubResource("CylinderMesh_7bqh3")
+
+[node name="Wheel_RR" type="RayCast3D" parent="."]
+transform = Transform3D(1, -0.000735063, 0.0004038, 0.000734186, 0.999997, 0.00214591, -0.000405393, -0.00214561, 0.999998, 1.4996, -0.126045, -1.00061)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="Wheel" type="MeshInstance3D" parent="Wheel_RR"]
+transform = Transform3D(1, 0.000523201, 0.000580602, -0.000581116, 0.000997808, 0.999999, 0.00052263, -1, 0.000998109, 0.000522971, -0.499176, 0.000785291)
+material_override = SubResource("StandardMaterial3D_lmfi0")
+mesh = SubResource("CylinderMesh_7bqh3")
