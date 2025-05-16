@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dms7em4dph66e"]
 
-[ext_resource type="PackedScene" uid="uid://3ug027dau1sr" path="res://Prefabs/car.tscn" id="1_ormqy"]
+[ext_resource type="PackedScene" uid="uid://b7a30dy0wxvkm" path="res://Prefabs/Car.tscn" id="1_ormqy"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_gbj0n"]
 lightmap_size_hint = Vector2i(44, 36)
@@ -45,15 +45,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.25, 0)
 mesh = SubResource("PrismMesh_gbj0n")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0425472, 2, 43.5886)
-projection = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0425472, 3.35775, 6.43321)
 size = 4.99192
-
-[node name="Car" parent="." instance=ExtResource("1_ormqy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.45097, 0)
-mass = 10.0
-spring_strength = 400.0
-spring_damping = 40.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4k50d")
+
+[node name="Car" parent="." instance=ExtResource("1_ormqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25667, 0)
