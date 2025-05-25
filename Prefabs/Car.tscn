@@ -29,15 +29,19 @@ mesh = SubResource("BoxMesh_85btx")
 [node name="WheelFL" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1)
 target_position = Vector3(0, -2, 0)
+spring_damping = 120
 
 [node name="WheelFR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1)
 target_position = Vector3(0, -2, 0)
+spring_damping = 120
 
 [node name="WheelRL" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
 target_position = Vector3(0, -2, 0)
+spring_damping = 120
 
 [node name="WheelRR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1)
 target_position = Vector3(0, -2, 0)
+spring_damping = 120
