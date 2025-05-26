@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7a30dy0wxvkm"]
 
-[ext_resource type="Script" uid="uid://dfny7ga32ya01" path="res://Scripts/car.gd" id="1_fdg2s"]
+[ext_resource type="Script" uid="uid://bigqkcw6mptr1" path="res://Scripts/car.gd" id="1_fdg2s"]
 [ext_resource type="PackedScene" uid="uid://deysmnlrv8fpg" path="res://Prefabs/wheel.tscn" id="2_fdg2s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_85btx"]
@@ -29,19 +29,31 @@ mesh = SubResource("BoxMesh_85btx")
 [node name="WheelFL" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1)
 target_position = Vector3(0, -2, 0)
-spring_damping = 120
+spring_stiffness = 1000
+spring_damping = 60
+rest_dist = 0.8
+is_motor = true
 
 [node name="WheelFR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1)
 target_position = Vector3(0, -2, 0)
-spring_damping = 120
+spring_stiffness = 1000
+spring_damping = 60
+rest_dist = 0.8
+is_motor = true
 
 [node name="WheelRL" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
 target_position = Vector3(0, -2, 0)
-spring_damping = 120
+spring_stiffness = 1000
+spring_damping = 60
+rest_dist = 0.8
+is_motor = true
 
 [node name="WheelRR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1)
 target_position = Vector3(0, -2, 0)
-spring_damping = 120
+spring_stiffness = 1000
+spring_damping = 60
+rest_dist = 0.8
+is_motor = true

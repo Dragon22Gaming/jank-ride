@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dms7em4dph66e"]
+[gd_scene load_steps=7 format=3 uid="uid://dms7em4dph66e"]
 
+[ext_resource type="Script" uid="uid://b2sq6qrlwkc8i" path="res://Scripts/camera.gd" id="1_00vsl"]
 [ext_resource type="PackedScene" uid="uid://b7a30dy0wxvkm" path="res://Prefabs/Car.tscn" id="1_ormqy"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_gbj0n"]
@@ -47,9 +48,14 @@ mesh = SubResource("PrismMesh_gbj0n")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0425472, 3.35775, 6.43321)
 size = 4.99192
+script = ExtResource("1_00vsl")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4k50d")
 
 [node name="Car" parent="." instance=ExtResource("1_ormqy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25667, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.205111, 0.978739, 0, -0.978739, 0.205111, 0, 1.51815, 0)
+shadow_enabled = true
