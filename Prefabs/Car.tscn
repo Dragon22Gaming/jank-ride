@@ -15,6 +15,7 @@ size = Vector3(1, 0.5, 1.5)
 [node name="Car" type="VehicleBody3D" node_paths=PackedStringArray("wheels")]
 script = ExtResource("1_fdg2s")
 wheels = [NodePath("WheelFL"), NodePath("WheelFR"), NodePath("WheelRL"), NodePath("WheelRR")]
+acceleration = 500.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_85btx")
@@ -28,32 +29,36 @@ mesh = SubResource("BoxMesh_85btx")
 
 [node name="WheelFL" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1)
+enabled = false
 target_position = Vector3(0, -2, 0)
-spring_stiffness = 1000
-spring_damping = 60
-rest_dist = 0.8
+spring_stiffness = 3000
+spring_damping = 100
+rest_dist = 0.4
 is_motor = true
 
 [node name="WheelFR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1)
+enabled = false
 target_position = Vector3(0, -2, 0)
-spring_stiffness = 1000
-spring_damping = 60
-rest_dist = 0.8
+spring_stiffness = 3000
+spring_damping = 100
+rest_dist = 0.4
 is_motor = true
 
 [node name="WheelRL" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
+enabled = false
 target_position = Vector3(0, -2, 0)
-spring_stiffness = 1000
-spring_damping = 60
-rest_dist = 0.8
+spring_stiffness = 3000
+spring_damping = 100
+rest_dist = 0.4
 is_motor = true
 
 [node name="WheelRR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1)
+enabled = false
 target_position = Vector3(0, -2, 0)
-spring_stiffness = 1000
-spring_damping = 60
-rest_dist = 0.8
+spring_stiffness = 3000
+spring_damping = 100
+rest_dist = 0.4
 is_motor = true

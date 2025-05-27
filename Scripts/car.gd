@@ -2,6 +2,8 @@ extends VehicleBody3D
 
 @export var wheels: Array[RaycastWheel]
 @export var acceleration := 50.0
+@export var max_speed := 1.0
+@export var v: float
 var motor_input := 0.0
 
 func _unhandled_input(event):
@@ -29,6 +31,7 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	for wheel in wheels:
+		wheel.force_raycast_update()
 		_do_single_suspension(wheel)
 		_do_single_wheel_acceleration(wheel)
 
@@ -38,11 +41,16 @@ func _get_point_velocity(point: Vector3) -> Vector3:
 func _do_single_wheel_acceleration(ray: RaycastWheel) -> void:
 	if ray.is_colliding() and ray.is_motor and (motor_input != 0):
 		var forward_dir = -ray.global_basis.x
+		var vel := forward_dir.dot(linear_velocity)
+		v = vel
 		var contact := ray.wheel.global_position
 		var force_vector: Vector3 = forward_dir * acceleration * motor_input
 		var force_pos := contact - global_position
 		var projected_vector: Vector3 = (force_vector - ray.get_collision_normal() * force_vector.dot(ray.get_collision_normal()))
+		if vel > max_speed:
+			force_vector *= 0.01
 		apply_force(projected_vector, force_pos)
+		DebugDraw3D.draw_arrow(ray.wheel.global_position, ray.wheel.global_position + projected_vector/(mass*5), Color(0, 0, 0, 0.5))
 
 func _do_single_suspension(ray: RaycastWheel) -> void:
 	if ray.is_colliding():
@@ -63,6 +71,7 @@ func _do_single_suspension(ray: RaycastWheel) -> void:
 			
 			var force_vector := 	(spring_force - spring_damp_force) * spring_up_dir
 			
+			contact = ray.wheel.global_position
 			var force_pos_offset := contact - global_position
-			
 			apply_force(force_vector, force_pos_offset)
+			DebugDraw3D.draw_arrow(ray.wheel.global_position, ray.wheel.global_position + force_vector/(mass*5), Color(1, 1, 1, 0.5))
