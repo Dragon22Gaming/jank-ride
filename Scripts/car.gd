@@ -3,8 +3,8 @@ extends VehicleBody3D
 @export var wheels: Array[RaycastWheel]
 @export var acceleration := 50.0
 @export var max_speed := 1.0
-@export var v: float
 var motor_input := 0.0
+var vel := 0.0
 
 func _unhandled_input(event):
 	if event.is_action_pressed("accelerate"):
@@ -34,15 +34,17 @@ func _physics_process(delta: float) -> void:
 		wheel.force_raycast_update()
 		_do_single_suspension(wheel)
 		_do_single_wheel_acceleration(wheel)
+	self.rotation.y = 0
+	self.position.x = 0
 
 func _get_point_velocity(point: Vector3) -> Vector3:
 	return linear_velocity + angular_velocity.cross(point - global_position)
 
 func _do_single_wheel_acceleration(ray: RaycastWheel) -> void:
+	
 	if ray.is_colliding() and ray.is_motor and (motor_input != 0):
 		var forward_dir = -ray.global_basis.x
-		var vel := forward_dir.dot(linear_velocity)
-		v = vel
+		vel = forward_dir.dot(linear_velocity)
 		var contact := ray.wheel.global_position
 		var force_vector: Vector3 = forward_dir * acceleration * motor_input
 		var force_pos := contact - global_position
@@ -51,6 +53,7 @@ func _do_single_wheel_acceleration(ray: RaycastWheel) -> void:
 			force_vector *= 0.01
 		apply_force(projected_vector, force_pos)
 		DebugDraw3D.draw_arrow(ray.wheel.global_position, ray.wheel.global_position + projected_vector/(mass*5), Color(0, 0, 0, 0.5))
+	ray.wheel.rotate_z(vel * get_process_delta_time())
 
 func _do_single_suspension(ray: RaycastWheel) -> void:
 	if ray.is_colliding():
