@@ -71,6 +71,7 @@ material = SubResource("StandardMaterial3D_pvdih")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0425472, 3.35775, 6.43321)
+projection = 1
 size = 4.99192
 script = ExtResource("1_00vsl")
 
@@ -83,14 +84,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.205111, 0.978739, 0, -0.978739, 0.205111, 0, 1.51815, 0)
 shadow_enabled = true
-
-[node name="Black_screen" type="ColorRect" parent="."]
-unique_name_in_owner = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0, 0, 0, 1)

@@ -41,8 +41,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1)
 enabled = false
 target_position = Vector3(0, -8, 0)
 spring_stiffness = 800
-spring_damping = 60
-rest_dist = 0.8
+spring_damping = 80
+rest_dist = 0.85
 is_motor = true
 
 [node name="WheelFR" parent="." instance=ExtResource("2_fdg2s")]
@@ -50,8 +50,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1)
 enabled = false
 target_position = Vector3(0, -8, 0)
 spring_stiffness = 800
-spring_damping = 60
-rest_dist = 0.8
+spring_damping = 80
+rest_dist = 0.85
 is_motor = true
 
 [node name="WheelRL" parent="." instance=ExtResource("2_fdg2s")]
@@ -59,15 +59,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
 enabled = false
 target_position = Vector3(0, -8, 0)
 spring_stiffness = 800
-spring_damping = 60
-rest_dist = 0.8
-is_motor = true
+spring_damping = 80
+rest_dist = 0.85
 
 [node name="WheelRR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1)
 enabled = false
 target_position = Vector3(0, -8, 0)
 spring_stiffness = 800
-spring_damping = 60
-rest_dist = 0.8
-is_motor = true
+spring_damping = 80
+rest_dist = 0.85
