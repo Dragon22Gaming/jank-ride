@@ -16,6 +16,9 @@ func _unhandled_input(event):
 		motor_input = -1.0
 	elif event.is_action_released("decelerate"):
 		motor_input = 0.0
+	
+	if event.is_action_pressed("Reset"):
+		get_tree().reload_current_scene()
 
 func _ready() -> void:
 	# Run any setup
@@ -34,8 +37,8 @@ func _physics_process(delta: float) -> void:
 		wheel.force_raycast_update()
 		_do_single_suspension(wheel)
 		_do_single_wheel_acceleration(wheel)
-	self.rotation.y = 0
-	self.position.x = 0
+	self.rotation.y = 0.0
+	self.position.z = 0.0
 
 func _get_point_velocity(point: Vector3) -> Vector3:
 	return linear_velocity + angular_velocity.cross(point - global_position)

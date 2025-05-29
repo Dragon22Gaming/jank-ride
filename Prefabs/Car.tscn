@@ -39,8 +39,8 @@ mesh = SubResource("BoxMesh_85btx")
 [node name="WheelFL" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1)
 enabled = false
-target_position = Vector3(0, -2, 0)
-spring_stiffness = 1000
+target_position = Vector3(0, -8, 0)
+spring_stiffness = 800
 spring_damping = 60
 rest_dist = 0.8
 is_motor = true
@@ -48,8 +48,8 @@ is_motor = true
 [node name="WheelFR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1)
 enabled = false
-target_position = Vector3(0, -2, 0)
-spring_stiffness = 1000
+target_position = Vector3(0, -8, 0)
+spring_stiffness = 800
 spring_damping = 60
 rest_dist = 0.8
 is_motor = true
@@ -57,8 +57,8 @@ is_motor = true
 [node name="WheelRL" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
 enabled = false
-target_position = Vector3(0, -2, 0)
-spring_stiffness = 1000
+target_position = Vector3(0, -8, 0)
+spring_stiffness = 800
 spring_damping = 60
 rest_dist = 0.8
 is_motor = true
@@ -66,8 +66,8 @@ is_motor = true
 [node name="WheelRR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1)
 enabled = false
-target_position = Vector3(0, -2, 0)
-spring_stiffness = 1000
+target_position = Vector3(0, -8, 0)
+spring_stiffness = 800
 spring_damping = 60
 rest_dist = 0.8
 is_motor = true

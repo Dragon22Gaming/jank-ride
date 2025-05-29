@@ -10,8 +10,7 @@ albedo_texture = ExtResource("1_i4ak4")
 
 [sub_resource type="PrismMesh" id="PrismMesh_gbj0n"]
 lightmap_size_hint = Vector2i(44, 36)
-left_to_right = 0.0
-size = Vector3(4, 1, 4)
+size = Vector3(10, 1.85, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvdih"]
 albedo_texture = ExtResource("2_3158n")
@@ -47,11 +46,26 @@ use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(1000, 0.1, 1000)
+size = Vector3(1000, 0.1, 10)
 material = SubResource("StandardMaterial3D_ub4j8")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.0336176, 0)
+transform = Transform3D(1, 0, 0, 0, 0.954667, -0.297675, 0, 0.297675, 0.954667, -15.1002, -0.28634, -0.062377)
+mesh = SubResource("PrismMesh_gbj0n")
+material = SubResource("StandardMaterial3D_pvdih")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999708, -0.024153, 0, 0.024153, 0.999708, -19.6664, -0.26183, -0.0662947)
+mesh = SubResource("PrismMesh_gbj0n")
+material = SubResource("StandardMaterial3D_pvdih")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.997091, -0.0762144, 0, 0.0762144, 0.997091, -26.6059, -0.842224, -0.182924)
+mesh = SubResource("PrismMesh_gbj0n")
+material = SubResource("StandardMaterial3D_pvdih")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1506, -0.250393, -0.182924)
 mesh = SubResource("PrismMesh_gbj0n")
 material = SubResource("StandardMaterial3D_pvdih")
 
@@ -64,8 +78,19 @@ script = ExtResource("1_00vsl")
 environment = SubResource("Environment_4k50d")
 
 [node name="Car" parent="." instance=ExtResource("1_ormqy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25667, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.205111, 0.978739, 0, -0.978739, 0.205111, 0, 1.51815, 0)
 shadow_enabled = true
+
+[node name="Black_screen" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)

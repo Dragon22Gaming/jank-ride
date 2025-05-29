@@ -1,6 +1,5 @@
 extends Camera3D
 
-@onready var car = get_node("Car")
 var can_do_stuff := false
 
 func _ready():
