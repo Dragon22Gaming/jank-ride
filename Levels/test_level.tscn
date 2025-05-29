@@ -1,12 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://dms7em4dph66e"]
+[gd_scene load_steps=11 format=3 uid="uid://dms7em4dph66e"]
 
 [ext_resource type="Script" uid="uid://b2sq6qrlwkc8i" path="res://Scripts/camera.gd" id="1_00vsl"]
+[ext_resource type="Texture2D" uid="uid://ua73tqapjmay" path="res://addons/kenney_prototype_textures/dark/texture_09.png" id="1_i4ak4"]
 [ext_resource type="PackedScene" uid="uid://b7a30dy0wxvkm" path="res://Prefabs/Car.tscn" id="1_ormqy"]
+[ext_resource type="Texture2D" uid="uid://d2dljad1alokp" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="2_3158n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ub4j8"]
+albedo_texture = ExtResource("1_i4ak4")
 
 [sub_resource type="PrismMesh" id="PrismMesh_gbj0n"]
 lightmap_size_hint = Vector2i(44, 36)
 left_to_right = 0.0
 size = Vector3(4, 1, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvdih"]
+albedo_texture = ExtResource("2_3158n")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ormqy"]
 sky_top_color = Color(0.277915, 0.479728, 0.562484, 1)
@@ -39,11 +47,13 @@ use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(100, 0.5, 100)
+size = Vector3(1000, 0.1, 1000)
+material = SubResource("StandardMaterial3D_ub4j8")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.0336176, 0)
 mesh = SubResource("PrismMesh_gbj0n")
+material = SubResource("StandardMaterial3D_pvdih")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0425472, 3.35775, 6.43321)

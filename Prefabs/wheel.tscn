@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://deysmnlrv8fpg"]
+[gd_scene load_steps=5 format=3 uid="uid://deysmnlrv8fpg"]
 
 [ext_resource type="Script" uid="uid://dy4k4a3c638ch" path="res://Scripts/raycastwheel.gd" id="1_eesuk"]
+[ext_resource type="Texture2D" uid="uid://d2dljad1alokp" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="2_0xpw3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i46tl"]
+albedo_texture = ExtResource("2_0xpw3")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_eesuk"]
+material = SubResource("StandardMaterial3D_i46tl")
 top_radius = 0.4
 bottom_radius = 0.4
 height = 0.15

@@ -1,13 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7a30dy0wxvkm"]
+[gd_scene load_steps=9 format=3 uid="uid://b7a30dy0wxvkm"]
 
 [ext_resource type="Script" uid="uid://bigqkcw6mptr1" path="res://Scripts/car.gd" id="1_fdg2s"]
 [ext_resource type="PackedScene" uid="uid://deysmnlrv8fpg" path="res://Prefabs/wheel.tscn" id="2_fdg2s"]
+[ext_resource type="Texture2D" uid="uid://ikp3o82rmukn" path="res://addons/kenney_prototype_textures/red/texture_09.png" id="2_xhrjm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_85btx"]
 size = Vector3(4, 0.5, 2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmfwv"]
+albedo_texture = ExtResource("2_xhrjm")
+
 [sub_resource type="BoxMesh" id="BoxMesh_kkprg"]
+material = SubResource("StandardMaterial3D_rmfwv")
 size = Vector3(4, 0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ib34p"]
+albedo_texture = ExtResource("2_xhrjm")
 
 [sub_resource type="BoxMesh" id="BoxMesh_85btx"]
 size = Vector3(1, 0.5, 1.5)
@@ -15,7 +23,7 @@ size = Vector3(1, 0.5, 1.5)
 [node name="Car" type="VehicleBody3D" node_paths=PackedStringArray("wheels")]
 script = ExtResource("1_fdg2s")
 wheels = [NodePath("WheelFL"), NodePath("WheelFR"), NodePath("WheelRL"), NodePath("WheelRR")]
-acceleration = 500.0
+acceleration = 200.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_85btx")
@@ -25,40 +33,41 @@ mesh = SubResource("BoxMesh_kkprg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_ib34p")
 mesh = SubResource("BoxMesh_85btx")
 
 [node name="WheelFL" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1)
 enabled = false
 target_position = Vector3(0, -2, 0)
-spring_stiffness = 3000
-spring_damping = 100
-rest_dist = 0.4
+spring_stiffness = 1000
+spring_damping = 60
+rest_dist = 0.8
 is_motor = true
 
 [node name="WheelFR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1)
 enabled = false
 target_position = Vector3(0, -2, 0)
-spring_stiffness = 3000
-spring_damping = 100
-rest_dist = 0.4
+spring_stiffness = 1000
+spring_damping = 60
+rest_dist = 0.8
 is_motor = true
 
 [node name="WheelRL" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
 enabled = false
 target_position = Vector3(0, -2, 0)
-spring_stiffness = 3000
-spring_damping = 100
-rest_dist = 0.4
+spring_stiffness = 1000
+spring_damping = 60
+rest_dist = 0.8
 is_motor = true
 
 [node name="WheelRR" parent="." instance=ExtResource("2_fdg2s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1)
 enabled = false
 target_position = Vector3(0, -2, 0)
-spring_stiffness = 3000
-spring_damping = 100
-rest_dist = 0.4
+spring_stiffness = 1000
+spring_damping = 60
+rest_dist = 0.8
 is_motor = true
